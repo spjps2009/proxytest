@@ -31,6 +31,12 @@ function FindProxyForURL(url, host) {
 	//FROM RULE: BYPASS:dnsDomainIs(host, "freeconferencecall.com")
 	if(dnsDomainIs(host, "freeconferencecall.com")) return "DIRECT";
 
+	//FROM RULE: BLOCK:dnsDomainIs(host,"avatar.skype.com")
+	if(dnsDomainIs(host,"avatar.skype.com")) return "PROXY 0.0.0.0:1234";
+
+	//FROM RULE: BLOCK:dnsDomainIs(host,"skypegraph.skype.com")
+	if(dnsDomainIs(host,"skypegraph.skype.com")) return "PROXY 0.0.0.0:1234";
+
 	//FROM RULE: BYPASS:dnsDomainIs(host, "skypeassets.com")
 	if(dnsDomainIs(host, "skypeassets.com")) return "DIRECT";
 
@@ -192,12 +198,6 @@ function FindProxyForURL(url, host) {
 
 	//FROM RULE: BYPASS:dnsDomainIs(host,"gateway.messenger.live.com")
 	if(dnsDomainIs(host,"gateway.messenger.live.com")) return "DIRECT";
-
-	//FROM RULE: BLOCK:dnsDomainIs(host,"avatar.skype.com")
-	if(dnsDomainIs(host,"avatar.skype.com")) return "PROXY 0.0.0.0:1234";
-
-	//FROM RULE: BLOCK:dnsDomainIs(host,"skypegraph.skype.com")
-	if(dnsDomainIs(host,"skypegraph.skype.com")) return "PROXY 0.0.0.0:1234";
 
 	//FROM RULE: BLOCK:dnsDomainIs(host, "appldnld.apple.com")
 	if(dnsDomainIs(host, "appldnld.apple.com")) return "PROXY 0.0.0.0:1234";
